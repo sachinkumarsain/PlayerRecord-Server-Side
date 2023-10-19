@@ -34,9 +34,16 @@ app.post("/admin" , async(req,res)=>{
 
     console.log(newPlayer)
      
-    // const saved = await newPlayer.save(); 
+    const saved = await newPlayer.save(); 
 
     res.status(200).send(newPlayer)
+})
+
+
+app.use("/home" , async(req , res)=>{
+    const aadharNo = req.body.input;
+    const playerData = await player.findOne({aadharNo})
+    res.status(200).send(playerData)
 })
 
 connection.then(() => {
