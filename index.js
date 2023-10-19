@@ -14,7 +14,7 @@ const PORT = 8080;
 app.post("/admin" , async(req,res)=>{
     console.log(req.body.data)
 
-    const{playerName , aadharNo , game, ageGroup ,position,state,tournamentName , organizedAt ,venue , action}=req.body;
+    const{playerName , aadharNo , game, ageGroup ,position,state,tournamentName , organizedAt ,venue , action}=req.body.data;
 
 
     const newPlayer = new player({
@@ -31,9 +31,12 @@ app.post("/admin" , async(req,res)=>{
         action,
         serialNum:"NR/3"
     })
-    const saved = await newPlayer.save(); 
 
-    res.status(200).send("player data")
+    console.log(newPlayer)
+     
+    // const saved = await newPlayer.save(); 
+
+    res.status(200).send(newPlayer)
 })
 
 connection.then(() => {
