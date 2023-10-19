@@ -7,7 +7,7 @@ const playerSchema = new mongoose.Schema({
     },
     aadharNo: {
         type: String,
-        required: true,
+        required: true, 
         unique: true
 
     },
@@ -59,7 +59,7 @@ const playerSchema = new mongoose.Schema({
 
 
 })
-const playerS = mongoose.model("Player", playerSchema);
+const player = mongoose.model("player", playerSchema);
 
 
-export default playerS;
+export default player;

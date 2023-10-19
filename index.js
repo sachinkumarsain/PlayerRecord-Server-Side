@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import playerS from "./model.js";
+import player from "./model.js";
 import connection from "./connection.js";
 
 const app = express();
@@ -17,7 +17,7 @@ app.post("/admin" , async(req,res)=>{
     const{playerName , aadharNo , game, ageGroup ,position,state,tournamentName , organizedAt ,venue , action}=req.body;
 
 
-    const newPlayer = new playerS({
+    const newPlayer = new player({
         playerName,
         aadharNo,
         game,
@@ -29,7 +29,7 @@ app.post("/admin" , async(req,res)=>{
         organizedAt,
         venue,
         action,
-        serialNum:NR/3
+        serialNum:"NR/3"
     })
     const saved = await newPlayer.save(); 
 
