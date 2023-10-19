@@ -42,8 +42,15 @@ app.post("/admin" , async(req,res)=>{
 
 app.use("/home" , async(req , res)=>{
     const aadharNo = req.body.input;
+    
     const playerData = await player.findOne({aadharNo})
-    res.status(200).send(playerData)
+    if(playerData){
+        res.status(200).send(playerData)
+    }
+    else{
+        res.status(202).send("Wrond Aadhar card number")
+    }
+    
 })
 
 connection.then(() => {
