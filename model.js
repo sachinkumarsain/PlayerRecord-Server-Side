@@ -36,6 +36,11 @@ const playerSchema = new mongoose.Schema({
         required: true,
 
     },
+    organizedAt: {
+        type: String,
+        required: true,
+
+    },
     venue: {
         type: String,
         required: true,
